@@ -7,6 +7,28 @@ const Nav = () => {
 
   const menuItems = [
     {
+      name: "PDF and Document Tools",
+      submenu: [
+        { title: "PDF Compressor", link: "/pdfCompressor" },
+        { title: "PDF to Word", link: "/pdfToWord" },
+        { title: "Word to PDF", link: "/wordToPdf" },
+        { title: "Merge PDF", link: "/pdfMerge" },
+        { title: "PDF Split", link: "/pdfSplit" },
+        { title: "PDF Watermark Adder", link: "/pdfWatermarkAdder" },
+      ],
+    },
+    {
+      name: "Image Tools",
+      submenu: [
+        { title: "Image Compressor", link: "/imageCompressor" },
+        { title: "JPEG to PNG", link: "/jpegToPng" },
+        { title: "PNG to JPG", link: "/PngToJpg" },
+        { title: "PNG transparent background remover", link: "/pngTransparentBackground" },
+        { title: "Background Blur", link: "/backgroundBlur" },
+        { title: "Image resizer", link: "/imageResizer" },
+      ],
+    },
+    {
       name: "Media Converters",
       submenu: [
         { title: "YouTube to MP3", link: "/youtubeTomp3" },
@@ -27,29 +49,7 @@ const Nav = () => {
         { title: "Podcast ID3 tag editor", link: "#" },
         { title: "Audio Format Converter", link: "#" },
       ],
-    },
-    {
-      name: "Image Tools",
-      submenu: [
-        { title: "Image Compressor", link: "#" },
-        { title: "JPEG to PNG", link: "#" },
-        { title: "PNG to JPG", link: "#" },
-        { title: "PNG transparent background remover", link: "#" },
-        { title: "Background Blur", link: "#" },
-        { title: "Image resizer", link: "#" },
-      ],
-    },
-    {
-      name: "PDF and Document Tools",
-      submenu: [
-        { title: "PDF Compressor", link: "#" },
-        { title: "PDF to Word", link: "#" },
-        { title: "Word to PDF", link: "#" },
-        { title: "Merge PDF", link: "#" },
-        { title: "PDF Split", link: "#" },
-        { title: "PDF Watermark Adder", link: "#" },
-      ],
-    },
+    },      
     {
       name: "Text and Writing Tools",
       submenu: [

@@ -3,52 +3,90 @@ import { Link } from "react-router-dom";
 
 const converters = [
   {
-    title: "PDF to Word",
-    desc: "Easily convert PDF files into editable Word documents.",
+    title: "PDF Compressor",
+    desc: "Easily Compress PDF files.",
     icon: "📄",
-    link: "/",
+    link: "/pdfCompressor",
   },
   {
     title: "Word to PDF",
     desc: "Convert Word files to professional, shareable PDFs.",
     icon: "📝",
-    link: "/",
+    link: "/wordToPdf",
   },
   {
-    title: "Image to JPG",
-    desc: "Change your image format quickly to JPG or PNG.",
-    icon: "🖼️",
-    link: "/",
+    title: "PDF to Word",
+    desc: "Convert PDF files to Editable Documents.",
+    icon: "📄",
+    link: "/pdfToWord",
   },
   {
-    title: "YouTube to MP3",
-    desc: "Extract high-quality MP3 audio from YouTube videos.",
-    icon: "🎧",
-    link: "/youtubeTomp3",
-  },
-  {
-    title: "YouTube to MP4",
-    desc: "Convert YouTube Videos to MP4 in just one click.",
-    icon: "🎬",
-    link: "/",
+    title: "Merge Pdf",
+    desc: "Combine multiple PDF files into one seamless document.",
+    icon: "📚",
+    link: "/pdfMerge",
   },
   {
     title: "Image Compressor",
     desc: "Reduce image size without losing quality.",
     icon: "📸",
-    link: "/",
+    link: "/imageCompressor",
   },
   {
-    title: "Merge PDF",
-    desc: "Combine multiple PDF files into one seamless document.",
-    icon: "📚",
-    link: "/",
+    title: "JPEG to PNG",
+    desc: "Convert JPEG to PNG",
+    icon: "🖼️",
+    link: "/jpegToPng",
   },
   {
-    title: "Text Encrypt/Decrypt",
-    desc: "Quickly switch between uppercase, lowercase, and title case.",
-    icon: "🔤",
-    link: "/",
+    title: "YouTube to MP3",
+    desc: "Extract high-quality MP3 audio from YouTube videos.",
+    icon: "🎧",
+    link: "/youtubeToMp3",
+  },
+  {
+    title: "YouTube to MP4",
+    desc: "Convert YouTube Videos to MP4 in just one click.",
+    icon: "🎬",
+    link: "/YoutubeToMp4",
+  },
+  
+  
+  {
+    title: "Image Resizer",
+    desc: "Resize Your Image in fast and secure way",
+    icon: "📸",
+    link: "/imageResizer",
+  },
+  {
+    title: "Audio Trimmer",
+    desc: "Quickly Trimm Audio",
+    icon: "🔉",
+    link: "/audioTrimmer",
+  },
+  {
+    title: "Text to Speech",
+    desc: "Quickly convert the text into speech",
+    icon: "🔠",
+    link: "/textToSpeech",
+  },
+  {
+    title: "Audio Format Converter",
+    desc: "Quickly convert the format of your Audio file",
+    icon: "🎧",
+    link: "/audioFormatConverter",
+  },
+  {
+    title: "Grammer and Spell Checker",
+    desc: "Check your Grammer and spellings",
+    icon: "🎓📝",
+    link: "/grammerAndSpellCheck",
+  },
+  {
+    title: "Word and Character Counter",
+    desc: "If you want to count words and characters then go and count easily",
+    icon: "🆎",
+    link: "/wordAndCharacter",
   },
 ];
 
@@ -108,11 +146,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="text-center py-6 text-gray-500 text-sm border-t ">
-        © 2025 EasyConvert — All rights reserved.
-      </footer>
     </div>
   );
 };
