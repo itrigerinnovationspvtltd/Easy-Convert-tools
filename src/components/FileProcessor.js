@@ -35,7 +35,7 @@ function FileUploader() {
           />
           <label
             htmlFor="fileInput"
-            className="bg-red-600 hover:bg-red-700 text-3xl text-white  py-4 px-14 rounded-2xl cursor-pointer"
+            className="bg-red-600 hover:bg-red-700 text-base sm:text-3xl text-white  py-4 px-14 rounded-2xl cursor-pointer"
           >
            Select  File
           </label>

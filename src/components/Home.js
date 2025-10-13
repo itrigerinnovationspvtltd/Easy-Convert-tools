@@ -1,124 +1,61 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const converters = [
-  {
-    title: "PDF Compressor",
-    desc: "Easily Compress PDF files.",
-    icon: "📄",
-    link: "/pdfCompressor",
-  },
-  {
-    title: "Word to PDF",
-    desc: "Convert Word files to professional, shareable PDFs.",
-    icon: "📝",
-    link: "/wordToPdf",
-  },
-  {
-    title: "PDF to Word",
-    desc: "Convert PDF files to Editable Documents.",
-    icon: "📄",
-    link: "/pdfToWord",
-  },
-  {
-    title: "Merge Pdf",
-    desc: "Combine multiple PDF files into one seamless document.",
-    icon: "📚",
-    link: "/pdfMerge",
-  },
-  {
-    title: "Image Compressor",
-    desc: "Reduce image size without losing quality.",
-    icon: "📸",
-    link: "/imageCompressor",
-  },
-  {
-    title: "JPEG to PNG",
-    desc: "Convert JPEG to PNG",
-    icon: "🖼️",
-    link: "/jpegToPng",
-  },
-  {
-    title: "YouTube to MP3",
-    desc: "Extract high-quality MP3 audio from YouTube videos.",
-    icon: "🎧",
-    link: "/youtubeToMp3",
-  },
-  {
-    title: "YouTube to MP4",
-    desc: "Convert YouTube Videos to MP4 in just one click.",
-    icon: "🎬",
-    link: "/YoutubeToMp4",
-  },
-  
-  
-  {
-    title: "Image Resizer",
-    desc: "Resize Your Image in fast and secure way",
-    icon: "📸",
-    link: "/imageResizer",
-  },
-  {
-    title: "Audio Trimmer",
-    desc: "Quickly Trimm Audio",
-    icon: "🔉",
-    link: "/audioTrimmer",
-  },
-  {
-    title: "Text to Speech",
-    desc: "Quickly convert the text into speech",
-    icon: "🔠",
-    link: "/textToSpeech",
-  },
-  {
-    title: "Audio Format Converter",
-    desc: "Quickly convert the format of your Audio file",
-    icon: "🎧",
-    link: "/audioFormatConverter",
-  },
-  {
-    title: "Grammer and Spell Checker",
-    desc: "Check your Grammer and spellings",
-    icon: "🎓📝",
-    link: "/grammerAndSpellCheck",
-  },
-  {
-    title: "Word and Character Counter",
-    desc: "If you want to count words and characters then go and count easily",
-    icon: "🆎",
-    link: "/wordAndCharacter",
-  },
+  { title: "PDF Compressor", desc: "Easily Compress PDF files.", icon: "📄", link: "/pdfCompressor" },
+  { title: "Word to PDF", desc: "Convert Word files to professional, shareable PDFs.", icon: "📝", link: "/wordToPdf" },
+  { title: "PDF to Word", desc: "Convert PDF files to Editable Documents.", icon: "📄", link: "/pdfToWord" },
+  { title: "Merge Pdf", desc: "Combine multiple PDF files into one seamless document.", icon: "📚", link: "/pdfMerge" },
+  { title: "Image Compressor", desc: "Reduce image size without losing quality.", icon: "📸", link: "/imageCompressor" },
+  { title: "JPEG to PNG", desc: "Convert JPEG to PNG", icon: "🖼️", link: "/jpegToPng" },
+  { title: "YouTube to MP3", desc: "Extract high-quality MP3 audio from YouTube videos.", icon: "🎧", link: "/youtubeToMp3" },
+  { title: "YouTube to MP4", desc: "Convert YouTube Videos to MP4 in just one click.", icon: "🎬", link: "/YoutubeToMp4" },
+  { title: "Image Resizer", desc: "Resize Your Image in a fast and secure way", icon: "📸", link: "/imageResizer" },
+  { title: "Audio Trimmer", desc: "Quickly trim audio", icon: "🔉", link: "/audioTrimmer" },
+  { title: "Text to Speech", desc: "Quickly convert text into speech", icon: "🔠", link: "/textToSpeech" },
+  { title: "Audio Format Converter", desc: "Convert your audio format instantly", icon: "🎧", link: "/audioFormatConverter" },
+  { title: "Grammar & Spell Checker", desc: "Check your grammar and spelling", icon: "🎓📝", link: "/grammerAndSpellCheck" },
+  { title: "Word & Character Counter", desc: "Count words and characters easily", icon: "🆎", link: "/wordAndCharacter" },
 ];
 
 const Home = () => {
-  return (
-    <div className="bg-gray-50 min-h-screen">
-      
+  
 
+  return (
+    
+    <div className="bg-gray-50 min-h-screen overflow-x-hidden pt-16">
+      
       {/* Hero Section */}
-      <section className="text-center py-16 bg-gradient-to-r from-blue-200 to-red-200 text-white">
-        <div className="px-4">
-         
-          <h1 className="text-5xl font-bold mb-4">
+      <section className="text-center py-20 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white relative">
+        <motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+> 
+        <div className=''>
+          <h1 className="text-4xl  md:text-5xl font-extrabold mb-4">
             All-in-One Online Converter
           </h1>
-          <p className="text-lg ">
-            Convert PDFs, images, videos, audio, and more — all in one place.
-            Fast, free, and secure.
+          <p className="text-sm px-2  md:text-lg ">
+            Convert PDFs, images, videos, audio, and more — all in one place.<br />
+           <p className="font-bold pt-1">Fast, free, and secure.</p> 
           </p>
         </div>
+</motion.div>
+        {/* Floating shapes for animation */}
+        <div className="absolute top-5 left-5 w-10 h-10  sm:top-10 sm:left-10 sm:w-16 sm:h-16 bg-white/30 rounded-full animate-[bounce_3s_ease-in-out_infinite]"></div>
+<div className="absolute bottom-5 right-5 w-10 h-10 sm:bottom-10 sm:right-10 sm:w-16 sm:h-16 bg-white/20 rounded-full animate-[bounce_3s_ease-in-out_infinite]"></div>
+
       </section>
 
       {/* About Section */}
-      <section className="py-12 px-6 text-center max-w-4xl mx-auto">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-          About EasyConvert
-        </h2>
-        <p className="text-gray-600 leading-relaxed">
-          EasyConvert is your go-to tool hub for file conversions, utilities,
-          and productivity boosters. Whether you need to convert PDFs, resize
-          images, extract media, or generate SEO tools — we’ve got you covered.
-          100% free and privacy-friendly.
+      <section className="py-12 px-6 text-center max-w-3xl mx-auto">
+        <h2 className="text-3xl font-bold text-gray-800 mb-4">About EasyConvert</h2>
+        <p className="text-sm sm:text-base text-gray-600">
+          EasyConvert is your go-to hub for fast, secure, and reliable file tools — from PDF and image converters to audio editors and productivity boosters. 
+          <span className="text-blue-600 font-medium"> 100% free and privacy-friendly.</span>
         </p>
       </section>
 
@@ -129,15 +66,19 @@ const Home = () => {
             Popular Converters & Tools
           </h2>
 
-          <div className="grid gap-8 grid-cols-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
             {converters.map((tool, index) => (
               <Link
                 key={index}
                 to={tool.link}
-                className="bg-gray-100 hover:bg-blue-50 border border-gray-200 rounded-2xl shadow-sm p-6 transition-transform transform hover:-translate-y-1"
+                className="bg-gray-50 border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-lg 
+                hover:border-blue-400 hover:bg-blue-50 
+                hover:scale-105 cursor-pointer group"
               >
-                <div className="text-4xl mb-3">{tool.icon}</div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <div className="text-4xl mb-3 ">
+                  {tool.icon}
+                </div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-blue-600">
                   {tool.title}
                 </h3>
                 <p className="text-gray-600 text-sm">{tool.desc}</p>
