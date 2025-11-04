@@ -22,7 +22,7 @@ const features = [
 
 const WorkYourWay = () => {
   return (
-    <section className="bg-white py-20 h-screen">
+    <section className="bg-white py-20 sm:h-screen">
       <div className="max-w-7xl mx-auto px-6">
         {/* Title */}
         <motion.h2
