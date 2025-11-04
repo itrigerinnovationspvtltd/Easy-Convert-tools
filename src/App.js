@@ -63,7 +63,7 @@ import PdfWatermarkAdder from './components/pdf-document-tools/PdfWatermarkAdder
 import ScanToPdf from './components/pdf-document-tools/ScanToPdf';
 import WordTOPdf from './components/pdf-document-tools/WordTOPdf';
 //Footer
-import { Footer } from './components/Footer';
+import Footer  from './components/Footer';
 //Design color and branding
 import ColorContrastChecker from './components/deisgn-color-branding/ColorContrastChecker';
 import FaviconGenerator from './components/deisgn-color-branding/FaviconGenerator';
@@ -151,6 +151,8 @@ import TextSummarizer from './components/text-writing-tools/TextSummarizer';
 import TitleHeadlineGenerator from './components/text-writing-tools/TitleHeadlineGenerator';
 import WordCharacterCounter from './components/text-writing-tools/WordCharacterCounter';
 import Convert from './components/Convert';
+import Trusted from './components/Trusted';
+import WorkYourWay from './components/WorkYourWay';
 
 
 function App() {
@@ -312,6 +314,8 @@ function App() {
           <Route path="/titleHeadlineGenerator" element={<TitleHeadlineGenerator />} />
           <Route path="/wordCharacterCounter" element={<WordCharacterCounter />} />
         </Routes>
+        <WorkYourWay/>
+        <Trusted/>
         <Footer />
       </div>
     </Router>
