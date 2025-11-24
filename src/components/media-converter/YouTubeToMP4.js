@@ -1,11 +1,16 @@
 import React from 'react'
+import DownloaderSection from "../DownloaderSection";
 
-const YouTubeToMP4 = () => {
+export default function YouTubeToMP4() {
   return (
-    <div className='py-32'>
-      <h3>Youtube to mp4</h3>
-    </div>
-  )
+    <DownloaderSection
+      title="YouTube to MP4 Converter"
+      description="Convert YouTube videos to MP4 instantly."
+      placeholder="Paste YouTube video link"
+      buttonText="Download MP4"
+      apiEndpoint="/api/youtube/mp4"
+    />
+  );
 }
 
-export default YouTubeToMP4
+

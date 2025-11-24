@@ -1,11 +1,15 @@
-import React from 'react'
+import DownloaderSection from "../DownloaderSection";
 
-const YouTubePlaylistDown = () => {
+export default function YouTubePlaylistDown() {
   return (
-    <div className='py-32' >
-      <h3>Youtube Playlist Downloader</h3>
-    </div>
-  )
+    <DownloaderSection
+      title="YouTube Playlist Downloader"
+      description="Download YouTube playlist videos instantly."
+      placeholder="Paste YouTube playlist video link"
+      buttonText="Download MP4"
+      apiEndpoint="/api/youtube/mp4"
+    />
+  );
 }
 
-export default YouTubePlaylistDown
+

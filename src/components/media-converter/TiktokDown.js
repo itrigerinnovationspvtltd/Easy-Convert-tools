@@ -1,11 +1,13 @@
-import React from 'react'
+import DownloaderSection from "../DownloaderSection";
 
-const TiktokDown = () => {
+export default function TiktokDown() {
   return (
-    <div className='py-32'>
-      <h3>TikTok Downloader</h3>
-    </div>
-  )
+    <DownloaderSection
+      title="TikTok video downloader"
+      description="Convert TikTok video"
+      placeholder="Paste TikTok video link"
+      buttonText="Download video"
+      apiEndpoint="http://localhost:5000/api/youtube/mp3"
+    />
+  );
 }
-
-export default TiktokDown

@@ -1,11 +1,13 @@
-import React from 'react'
+import DownloaderSection from "../DownloaderSection";
 
-const InstaReelDown = () => {
+export default function InstaReelDown() {
   return (
-    <div className='py-32'>
-      <h3>Instagram Reel Downloader</h3>
-    </div>
-  )
+    <DownloaderSection
+      title="Instagram Reel downloader"
+      description="Download TikTok video"
+      placeholder="Paste Insta reel link"
+      buttonText="Download reel"
+      apiEndpoint="http://localhost:5000/api/youtube/mp3"
+    />
+  );
 }
-
-export default InstaReelDown

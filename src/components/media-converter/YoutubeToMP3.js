@@ -1,11 +1,13 @@
-import React from 'react'
+import DownloaderSection from "../DownloaderSection";
 
-const YoutubeToMP3 = () => {
+export default function YouTubeToMP3() {
   return (
-    <div className='py-32'>
-      <h3>YouTube to MP3 Converter</h3>
-    </div>
-  )
+    <DownloaderSection
+      title="YouTube to MP3 Converter"
+      description="Convert YouTube videos to MP3 instantly."
+      placeholder="Paste YouTube video link"
+      buttonText="Download MP3"
+      apiEndpoint="http://localhost:5000/api/youtube/mp3"
+    />
+  );
 }
-
-export default YoutubeToMP3

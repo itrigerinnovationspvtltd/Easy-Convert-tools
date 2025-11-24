@@ -1,11 +1,13 @@
-import React from 'react'
+import DownloaderSection from "../DownloaderSection";
 
-const FbVideoDown = () => {
+export default function FbVideoDown() {
   return (
-    <div className='py-32'>
-        <h3>Facebook Video Downloader</h3>
-    </div>
-  )
+    <DownloaderSection
+      title="Facebook video downloader"
+      description="Download Facebook video"
+      placeholder="Paste Facebook Video link"
+      buttonText="Download video"
+      apiEndpoint="http://localhost:5000/api/youtube/mp3"
+    />
+  );
 }
-
-export default FbVideoDown
