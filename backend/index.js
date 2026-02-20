@@ -8,9 +8,13 @@ import fs from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const PYTHON = process.platform === "win32" ? "python" : "python3";
 
 const app = express();
-app.use(cors());
+const PORT = process.env.PORT || 5000;
+const allowedOrigins = ["http://localhost:3000", "http://localhost:3001"];
+if (process.env.FRONTEND_URL) allowedOrigins.push(process.env.FRONTEND_URL);
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 
 const upload = multer({ dest: path.join(__dirname, "uploads/") });
@@ -28,7 +32,7 @@ app.post("/process-file", upload.single("file"), (req, res) => {
 
   const args = [path.join(__dirname, "script.py"), filePath, conversionType];
   if (conversionType === "pdf-watermark" && watermarkText) args.push(watermarkText);
-  const python = spawn("python", args);
+  const python = spawn(PYTHON, args);
 
   let pythonOutput = "";
   python.stdout.on("data", (data) => (pythonOutput += data.toString()));
@@ -53,7 +57,7 @@ app.post("/process-merge", upload.array("files", 20), (req, res) => {
   const files = req.files;
   if (!files || files.length < 2) return res.status(400).json({ error: "Need at least 2 PDF files to merge" });
   const paths = files.map((f) => f.path);
-  const python = spawn("python", [path.join(__dirname, "script.py"), "merge", ...paths]);
+  const python = spawn(PYTHON, [path.join(__dirname, "script.py"), "merge", ...paths]);
   let pythonOutput = "";
   python.stdout.on("data", (data) => (pythonOutput += data.toString()));
   python.stderr.on("data", (data) => console.error("🐍 Python error:", data.toString()));
@@ -68,4 +72,4 @@ app.post("/process-merge", upload.array("files", 20), (req, res) => {
   });
 });
 
-app.listen(5000, () => console.log("✅ Backend running on port 5000"));
+app.listen(PORT, () => console.log(`✅ Backend running on port ${PORT}`));
