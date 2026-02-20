@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import logo from "../assets/Easy-convert-logo.svg";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import logo from "../assets/Easy-convert-logo.svg";
 
 const Nav = () => {
   const [openMenu, setOpenMenu] = useState(null);
@@ -9,14 +10,15 @@ const Nav = () => {
 
   const menuItems = [
     {
-      name: "PDF and Document Tools",
+      name: "PDF & Document",
       submenu: [
         { title: "PDF Compressor", link: "/pdfCompressor" },
         { title: "PDF to Word", link: "/pdfToWord" },
-        { title: "Word to PDF", link: "/wordToPdf" },
+        { title: "Word to PDF", link: "/wordTOPdf" },
         { title: "Merge PDF", link: "/pdfMerge" },
         { title: "PDF Split", link: "/pdfSplit" },
-        { title: "PDF Watermark Adder", link: "/pdfWatermarkAdder" },
+        { title: "PDF Watermark", link: "/pdfWatermarkAdder" },
+        { title: "Digital Signature", link: "/digitalSignature" },
       ],
     },
     {
@@ -25,159 +27,140 @@ const Nav = () => {
         { title: "Image Compressor", link: "/imageCompressor" },
         { title: "JPEG to PNG", link: "/jpegToPng" },
         { title: "PNG to JPG", link: "/png-jpg-converter" },
-        { title: "PNG transparent background remover", link: "/pngTransparentBackground" },
+        { title: "Background Remover", link: "/pngTransparentBackground" },
         { title: "Background Blur", link: "/backgroundBlur" },
-        { title: "Image resizer", link: "/imageResizer" },
+        { title: "Image Resizer", link: "/imageResizer" },
       ],
     },
     {
-      name: "Media Converters",
+      name: "Audio",
       submenu: [
-        { title: "YouTube to MP3", link: "/youtubeTomp3" },
-        { title: "YouTube to MP4", link: "/youtubeTomp4" },
-        { title: "Youtube Playlist Downloader", link: "/youtubePlaylist" },
-        { title: "TikTok Downloader", link: "/tiktokDown" },
-        { title: "Instagram Reel Downloader", link: "/instaReelDown" },
-        { title: "Facebook Video Downloader", link: "/fbVideoDown" },
+        { title: "Text to Speech", link: "/textToSpeech" },
+        { title: "Speech to Text", link: "/speechToText" },
       ],
     },
     {
-      name: "Audio & Music Tools",
+      name: "More Tools",
       submenu: [
-        { title: "Audio Cutter/ Trimmer", link: "#" },
-        { title: "Audio Joiner/ Merger", link: "#" },
-        { title: "Audio Normalizer", link: "#" },
-        { title: "Text to Speech", link: "#" },
-        { title: "Podcast ID3 tag editor", link: "#" },
-        { title: "Audio Format Converter", link: "#" },
-      ],
-    },      
-    {
-      name: "Text and Writing Tools",
-      submenu: [
-        { title: "Plagiarism Checker", link: "#" },
-        { title: "Word Counter & Character Counter", link: "#" },
-        { title: "Grammar & Spell Checker", link: "#" },
-        { title: "Readability Score Analyzer", link: "#" },
-      ],
-    },
-    {
-      name: "Social Media Tools",
-      submenu: [
-        { title: "Instagram Username Availability check", link: "#" },
-        { title: "Twitter handle availability Check", link: "#" },
-        { title: "Social Media post scheduler", link: "#" },
-        { title: "Hastag Generator", link: "#" },
-        { title: "Social post previewer", link: "#" },
-        { title: "LinkedIn Profile analyzer", link: "#" },
-        { title: "Tiktok trend finder", link: "#" },
-        { title: "Youtube tag & keyword extractor", link: "#" },
-      ],
-    },
-    {
-      name: "Security & Privacy",
-      submenu: [
-        { title: "Password Strength Checker", link: "#" },
-        { title: "Hash Generator", link: "#" },
-        { title: "Text encrypt/Decrypt", link: "#" },
-        { title: "Two-factor code generator", link: "#" },
-        { title: "DAta leak checker", link: "#" },
-        { title: "VPN vs Proxy explainer", link: "#" },
+        { title: "Word Counter", link: "/wordCharacterCounter" },
+        { title: "Color Picker", link: "/colorPicker" },
+        { title: "JSON Formatter", link: "/jsonFormatter" },
+        { title: "Password Generator", link: "/randomPwdGenerator" },
       ],
     },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <Link to="/">
-              <img src={logo} alt="Easy Convert" className="h-20 w-auto cursor-pointer" />
-            </Link>
-          </div>
-          
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100/80">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 sm:h-[72px] items-center justify-between">
+          <Link to="/" className="flex items-center shrink-0">
+            <img src={logo} alt="Easy Convert" className="h-10 sm:h-12 w-auto" />
+          </Link>
 
-          {/* Nav Items */}
-          <div className="hidden sm:flex space-x-6">
-            
-            {menuItems.map((item, index) => {
-              const isHiddenOnMd = index >= Math.ceil(menuItems.length / 2);
-              return (
+          <div className="hidden lg:flex items-center gap-1">
+            {menuItems.map((item, index) => (
               <div
                 key={index}
-                className={`relative ${isHiddenOnMd ? "hidden md:hidden lg:block" : ""}`}
+                className="relative"
                 onMouseEnter={() => setOpenMenu(index)}
                 onMouseLeave={() => setOpenMenu(null)}
               >
-                <button className="px-3 py-2 text-md font-medium text-black hover:text-blue-400">
+                <button
+                  className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                    openMenu === index
+                      ? "text-brand-600 bg-brand-50"
+                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                  }`}
+                >
                   {item.name}
                 </button>
-
-                {/* Mega Menu */}
-                {openMenu === index && (
-                  <div className={`absolute ${ index >= menuItems.length -2 ? "right-0" : "left-0"}  top-full w-[500px]  bg-white text-gray-800 shadow-2xl border rounded-2xl p-6 grid grid-cols-2 gap-4 z-50`}>
-                    {item.submenu.map((sub, subIndex) => (
-                      <Link
-                        key={subIndex}
-                        to={sub.link}
-                        className="block hover:text-blue-400"
-                      >
-                        {sub.title}
-                      </Link>
-
-                    ))}
-                  </div>
-                )}
+                <AnimatePresence>
+                  {openMenu === index && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.15 }}
+                      className={`absolute ${index >= menuItems.length - 2 ? "right-0" : "left-0"} top-full pt-2 z-50`}
+                    >
+                      <div className="w-64 bg-white rounded-2xl shadow-card-hover border border-gray-100 overflow-hidden">
+                        <div className="p-2">
+                          {item.submenu.map((sub) => (
+                            <Link
+                              key={sub.link}
+                              to={sub.link}
+                              className="block px-3 py-2.5 rounded-xl text-sm text-gray-600 hover:text-brand-600 hover:bg-brand-50/80 transition-colors"
+                            >
+                              {sub.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-            )})}
-          </div>          
-          {/* Mobile Hamburger */}
-          <div className="sm:hidden">
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="text-gray-700 focus:outline-none"
-            >
-              {mobileOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
-            </button>
+            ))}
           </div>
-        </div>
-      </div>{/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="sm:hidden bg-white border-t shadow-md">
-          <div className="flex flex-col p-4 space-y-3">
+
+          <div className="flex items-center gap-3">
             <Link
               to="/about"
-              onClick={() => setMobileOpen(false)}
-              className="text-gray-800 hover:text-blue-500 font-medium"
+              className="hidden sm:block text-sm font-medium text-gray-600 hover:text-gray-900"
             >
               About
             </Link>
-            <Link
-              to="/pdfToWord"
-              onClick={() => setMobileOpen(false)}
-              className="text-gray-800 hover:text-blue-500"
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden p-2.5 rounded-xl text-gray-600 hover:bg-gray-100"
+              aria-label="Menu"
             >
-              PDF to Word
-            </Link>
-            <Link
-              to="/png-jpg-converter"
-              onClick={() => setMobileOpen(false)}
-              className="text-gray-800 hover:text-blue-500"
-            >
-              PNG to JPG
-            </Link>
-            <Link
-              to="/youtubeTomp3"
-              onClick={() => setMobileOpen(false)}
-              className="text-gray-800 hover:text-blue-500"
-            >
-              YouTube to MP3
-            </Link>
+              {mobileOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+            </button>
           </div>
         </div>
-      )}
+      </div>
+
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-white border-t border-gray-100 overflow-hidden"
+          >
+            <div className="px-4 py-4 space-y-1 max-h-[70vh] overflow-y-auto">
+              {menuItems.map((item) => (
+                <div key={item.name} className="py-2">
+                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-2">
+                    {item.name}
+                  </p>
+                  <div className="space-y-0.5">
+                    {item.submenu.map((sub) => (
+                      <Link
+                        key={sub.link}
+                        to={sub.link}
+                        onClick={() => setMobileOpen(false)}
+                        className="block px-3 py-2.5 rounded-xl text-gray-700 hover:bg-gray-50"
+                      >
+                        {sub.title}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+              <Link
+                to="/about"
+                onClick={() => setMobileOpen(false)}
+                className="block px-3 py-2.5 rounded-xl text-gray-700 hover:bg-gray-50 font-medium"
+              >
+                About
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

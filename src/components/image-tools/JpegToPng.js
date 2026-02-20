@@ -5,9 +5,9 @@ import FileUploader from "../FileProcessor";
 
 function JpegToPng() {
   return (
-    <div className="h-[560px] sm:h-[800px] flex flex-col items-center py-32 bg-gray-100">
-      <h1 className="text-xl sm:text-5xl font-extrabold sm:font-bold mb-6 text-gray-800">Convert your JPEG to PNG in a snap.</h1>
-      <p className="mb-6 text-xs px-4 sm:text-2xl  text-center">Convert to PNG in seconds with the Easy Convert Tools, free online JPG to PNG converter..</p>
+    <div className="min-h-[580px] flex flex-col items-center pt-24 pb-12 sm:pt-24 sm:pb-16 px-4 sm:px-6 gradient-mesh">
+      <h1 className="text-2xl sm:text-4xl font-bold mb-4 text-gray-800">Convert your JPEG to PNG in a snap.</h1>
+      <p className="mb-6 text-sm sm:text-lg text-gray-600 text-center max-w-xl">Convert to PNG in seconds with the Easy Convert Tools, free online JPG to PNG converter.</p>
       <FileUploader
               title="Select Jpeg Image"            
               inputAccept="image/jpeg"              

@@ -4,18 +4,19 @@ import FileUploader from "../FileProcessor";
 function PngToJpg() {
 
   return (
-    <div className="h-[560px] sm:h-[800px] flex flex-col items-center py-32  bg-gray-100">
-      <h1 className="text-xl sm:text-6xl font-extrabold sm:font-bold mb-6 text-gray-800">
+    <div className="min-h-[580px] flex flex-col items-center pt-24 pb-12 sm:pt-24 sm:pb-16 px-4 sm:px-6 gradient-mesh">
+      <h1 className="text-2xl sm:text-4xl font-bold mb-4 text-gray-800">
 Convert PNG to JPG</h1>
-      <p className="mb-6 text-xs px-4 sm:text-2xl  text-center">Transform PNG images to JPG format.
-Convert multiple PNG to JPG online at once.</p>
+      <p className="mb-6 text-sm sm:text-lg text-gray-600 text-center max-w-xl">Transform PNG images to JPG format. Convert PNG to JPG online for free.</p>
       
       {/* Reusable FileUploader with props for PNG → JPG */}
       <FileUploader
-        title="Select PNG Images"            
-        inputAccept="image/png"           
-        fileTypeLabel="image"              
-        downloadButtonText="Download JPG"  
+        title="Select PNG Images"
+        inputAccept="image/png,.png"
+        fileTypeLabel="PNG image"
+        downloadButtonText="Download JPG"
+        conversionType="image-to-jpg"
+        hideConversionSelect
       />
     </div>
   );

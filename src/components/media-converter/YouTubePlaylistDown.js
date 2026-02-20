@@ -1,4 +1,5 @@
 import DownloaderSection from "../DownloaderSection";
+import { API_BASE_URL } from "../../config/api";
 
 export default function YouTubePlaylistDown() {
   return (
@@ -7,7 +8,7 @@ export default function YouTubePlaylistDown() {
       description="Download YouTube playlist videos instantly."
       placeholder="Paste YouTube playlist video link"
       buttonText="Download MP4"
-      apiEndpoint="/api/youtube/mp4"
+      apiEndpoint={`${API_BASE_URL}/api/youtube/mp4`}
     />
   );
 }

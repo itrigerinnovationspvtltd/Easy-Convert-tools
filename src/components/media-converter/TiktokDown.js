@@ -1,4 +1,5 @@
 import DownloaderSection from "../DownloaderSection";
+import { API_BASE_URL } from "../../config/api";
 
 export default function TiktokDown() {
   return (
@@ -7,7 +8,7 @@ export default function TiktokDown() {
       description="Convert TikTok video"
       placeholder="Paste TikTok video link"
       buttonText="Download video"
-      apiEndpoint="http://localhost:5000/api/youtube/mp3"
+      apiEndpoint={`${API_BASE_URL}/api/youtube/mp3`}
     />
   );
 }

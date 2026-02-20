@@ -1,5 +1,6 @@
 import React from 'react'
 import DownloaderSection from "../DownloaderSection";
+import { API_BASE_URL } from "../../config/api";
 
 export default function YouTubeToMP4() {
   return (
@@ -8,7 +9,7 @@ export default function YouTubeToMP4() {
       description="Convert YouTube videos to MP4 instantly."
       placeholder="Paste YouTube video link"
       buttonText="Download MP4"
-      apiEndpoint="/api/youtube/mp4"
+      apiEndpoint={`${API_BASE_URL}/api/youtube/mp4`}
     />
   );
 }
