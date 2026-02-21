@@ -46,6 +46,10 @@ const Nav = () => {
         { title: "Color Picker", link: "/colorPicker" },
         { title: "JSON Formatter", link: "/jsonFormatter" },
         { title: "Password Generator", link: "/randomPwdGenerator" },
+        { title: "Case Converter", link: "/caseConverter" },
+        { title: "Text Diff", link: "/textDiffChecker" },
+        { title: "JWT Decoder", link: "/jwtDecoder" },
+        { title: "Timestamp Converter", link: "/timestampConverter" },
       ],
     },
   ];

@@ -5,7 +5,6 @@ import { spawn } from "child_process";
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PYTHON = process.platform === "win32" ? "python" : "python3";
@@ -17,7 +16,9 @@ if (process.env.FRONTEND_URL) allowedOrigins.push(process.env.FRONTEND_URL);
 app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 
-const upload = multer({ dest: path.join(__dirname, "uploads/") });
+const uploadDir = path.join(__dirname, "uploads");
+fs.mkdirSync(uploadDir, { recursive: true });
+const upload = multer({ dest: uploadDir });
 
 app.get("/", (req, res) => {
   res.send("✅ Backend server is running!");

@@ -14,6 +14,52 @@ except ImportError:
 output_dir = os.path.join(os.path.dirname(__file__), "output")
 os.makedirs(output_dir, exist_ok=True)
 
+# For images-to-pdf: argv[1]=images-to-pdf, argv[2:]=image paths
+if len(sys.argv) >= 3 and sys.argv[1] == "images-to-pdf":
+    tmp_to_remove = []
+    try:
+        from reportlab.lib.pagesizes import letter
+        from reportlab.pdfgen import canvas
+        raw_paths = [os.path.abspath(p) for p in sys.argv[2:] if os.path.exists(p)]
+        if not raw_paths:
+            print("ERROR:No valid image files")
+            sys.exit(1)
+        out_path = os.path.join(output_dir, "images-to-pdf.pdf")
+        page_w, page_h = letter
+        margin = 40
+        c = canvas.Canvas(out_path, pagesize=letter)
+        for i, img_path in enumerate(raw_paths):
+            img = Image.open(img_path)
+            iw, ih = img.size
+            if img.mode in ("RGBA", "P"):
+                tmp = os.path.join(output_dir, f"_tmp_img_{i}.jpg")
+                img.convert("RGB").save(tmp, "JPEG", quality=95)
+                img.close()
+                img_path = tmp
+                tmp_to_remove.append(tmp)
+            avail_w, avail_h = page_w - 2 * margin, page_h - 2 * margin
+            scale = min(avail_w / iw, avail_h / ih, 1.0)
+            draw_w, draw_h = iw * scale, ih * scale
+            x = margin + (avail_w - draw_w) / 2
+            y = page_h - margin - draw_h
+            c.drawImage(img_path, x, y, width=draw_w, height=draw_h)
+            c.showPage()
+        c.save()
+        for t in tmp_to_remove:
+            try:
+                os.remove(t)
+            except Exception:
+                pass
+        print(out_path)
+    except Exception as e:
+        for t in tmp_to_remove:
+            try:
+                os.remove(t)
+            except Exception:
+                pass
+        print(f"ERROR:{e}")
+    sys.exit(0)
+
 # For merge: argv[1]=merge, argv[2:]=file paths
 if len(sys.argv) >= 3 and sys.argv[1] == "merge":
     try:

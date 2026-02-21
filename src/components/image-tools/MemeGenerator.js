@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { getProductionFilename } from "../../utils/downloadFilename";
 
 const DEFAULT_IMG = "https://i.imgflip.com/1g8my4.jpg"; // Drake meme template
 
@@ -99,7 +100,7 @@ function MemeGenerator() {
       });
       const a = document.createElement("a");
       a.href = canvas.toDataURL("image/png");
-      a.download = "meme.png";
+      a.download = getProductionFilename("png");
       a.click();
     };
     img.onerror = () => setImgError(true);

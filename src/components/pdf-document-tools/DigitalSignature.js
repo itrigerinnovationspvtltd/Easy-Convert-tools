@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaPenFancy, FaFont, FaTrashAlt, FaDownload } from "react-icons/fa";
+import { getProductionFilename } from "../../utils/downloadFilename";
 
 const SIGNATURE_FONTS = [
   { name: "Dancing Script", value: "'Dancing Script', cursive" },
@@ -150,7 +151,7 @@ const DigitalSignature = () => {
     const dataUrl = getSignatureDataUrl();
     if (!dataUrl) return;
     const link = document.createElement("a");
-    link.download = "signature.png";
+    link.download = getProductionFilename("png");
     link.href = dataUrl;
     link.style.display = "none";
     document.body.appendChild(link);

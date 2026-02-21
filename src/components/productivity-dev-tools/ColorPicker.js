@@ -218,7 +218,7 @@ function ColorPicker() {
           <div
             ref={squareRef}
             onClick={handleSquareClick}
-            className="relative w-full aspect-square max-w-[280px] rounded-xl cursor-crosshair overflow-hidden border border-gray-200 shadow-md"
+            className="relative w-full aspect-square max-w-[280px] rounded-xl cursor-crosshair border border-gray-200 shadow-md overflow-hidden"
           >
             <div
               className="absolute inset-0"
@@ -227,28 +227,32 @@ function ColorPicker() {
               }}
             />
             <div
-              className="absolute w-4 h-4 -ml-2 -mt-2 rounded-full border-2 border-white shadow pointer-events-none"
+              className="absolute w-5 h-5 rounded-full border-2 border-white shadow-lg pointer-events-none"
               style={{
                 left: `${hsv.s}%`,
                 top: `${100 - hsv.v}%`,
+                transform: "translate(-50%, -50%)",
                 backgroundColor: hex,
+                boxShadow: "0 0 0 2px rgba(0,0,0,0.2)",
               }}
             />
           </div>
           <div
             ref={hueRef}
             onClick={handleHueClick}
-            className="relative h-3 rounded-full cursor-pointer overflow-hidden border border-gray-200"
+            className="relative w-full h-4 rounded-full cursor-pointer overflow-visible border border-gray-200 max-w-[280px]"
             style={{
               background: "linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00)",
             }}
           >
             <div
-              className="absolute w-4 h-4 -ml-2 -mt-0.5 rounded-full border-2 border-white shadow pointer-events-none"
+              className="absolute w-5 h-5 rounded-full border-2 border-white shadow-lg pointer-events-none"
               style={{
                 left: `${(hsv.h / 360) * 100}%`,
                 top: "50%",
+                transform: "translate(-50%, -50%)",
                 backgroundColor: `hsl(${hsv.h}, 100%, 50%)`,
+                boxShadow: "0 0 0 2px rgba(0,0,0,0.2)",
               }}
             />
           </div>

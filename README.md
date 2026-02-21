@@ -1,70 +1,137 @@
-# Getting Started with Create React App
+# Easy Convert Tools
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A production-ready web app providing file converters, image tools, and utility calculators. File conversions run on a Node + Python backend; many tools run entirely client-side.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### File & Image Tools (Backend)
 
-### `npm start`
+| Tool | Description |
+|------|-------------|
+| PDF Compressor | Compress PDF files |
+| Word to PDF | Convert DOC/DOCX to PDF |
+| PDF to Word | Convert PDF to DOCX |
+| PNG to JPG / JPEG to PNG | Image format conversion |
+| Image Compressor | Compress images |
+| Image Resizer | Resize images by width/height |
+| Image to WebP | Convert images to WebP |
+| Background Blur | Apply blur to image backgrounds |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Client-Side Tools (No Backend)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+| Category | Tools |
+|----------|-------|
+| Text | Word & character counter, Base64 encoder/decoder |
+| Data | JSON formatter, UUID generator, Hash generator (SHA-256/384/512) |
+| Security | Password generator, strength checker, 2FA secret generator |
+| Content | Lorem Ipsum generator, Markdown to HTML |
+| Utilities | BMI calculator, Age calculator, Unit converter, Color picker |
+| Developer | Regex tester, Emoji counter |
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Quick Start
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js 18+
+- Python 3.8+ (for backend file conversions)
+- npm or yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Install Dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Frontend
+npm install
 
-### `npm run eject`
+# Backend
+cd backend
+pip install -r requirements.txt
+npm install
+cd ..
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 2. Run Locally
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+# Terminal 1 – Backend (port 5000)
+cd backend && npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Terminal 2 – Frontend (port 3000)
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+### 3. Production Build
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Output is in the `build` folder. Serve it with any static host.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Environment Variables
 
-### Analyzing the Bundle Size
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `REACT_APP_API_URL` | Backend API base URL (frontend) | `http://localhost:5000` |
+| `FRONTEND_URL` | Frontend URL (for CORS; backend) | `http://localhost:3000` |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Create `.env` in the project root for local development:
 
-### Making a Progressive Web App
+```env
+REACT_APP_API_URL=http://localhost:5000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Create `.env` in `backend/` if needed:
 
-### Advanced Configuration
+```env
+FRONTEND_URL=http://localhost:3000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Frontend:** Vercel, Netlify, or any static host (set `REACT_APP_API_URL` to your backend URL).
+- **Backend:** Render, Railway, or any Node + Python environment. Set `FRONTEND_URL` for CORS.
 
-### `npm run build` fails to minify
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for a step-by-step Vercel + Render setup.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Project Structure
+
+```
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── utils/
+│   └── App.js
+├── backend/
+│   ├── index.js      # Express API
+│   ├── script.py     # Python conversions (PDF, images, Word)
+│   └── requirements.txt
+├── package.json
+└── README.md
+```
+
+---
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm start` | Start development server |
+| `npm run build` | Production build |
+| `cd backend && npm start` | Start backend API |
+
+---
+
+## License
+
+MIT

@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { API_BASE_URL } from "../../config/api";
+import { getProductionFilename } from "../../utils/downloadFilename";
 import { HiDocument, HiXMark } from "react-icons/hi2";
 import { FaCloudUploadAlt } from "react-icons/fa";
 
@@ -62,7 +63,7 @@ function PdfMergeUploader() {
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = "merged.pdf";
+        a.download = getProductionFilename("pdf");
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);

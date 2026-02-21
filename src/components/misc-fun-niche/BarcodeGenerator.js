@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getProductionFilename } from "../../utils/downloadFilename";
 
 // Use free barcode image API - no npm dependency
 const BARCODE_API = "https://barcode.tec-it.com/barcode.ashx";
@@ -33,7 +34,7 @@ const BarcodeGenerator = () => {
         {url && (
           <div className="card-tool p-6 flex flex-col items-center">
             <img src={url} alt="Barcode" className="max-w-full h-auto" />
-            <a href={url} download="barcode.png" className="mt-4 btn-gradient px-6 py-2.5 rounded-xl text-white inline-block">
+            <a href={url} download={getProductionFilename("png")} className="mt-4 btn-gradient px-6 py-2.5 rounded-xl text-white inline-block">
               Download
             </a>
           </div>

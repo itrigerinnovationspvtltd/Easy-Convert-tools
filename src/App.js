@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Nav from './components/Nav';
 import Home from './components/Home';
 import About from './components/About';
@@ -53,6 +53,8 @@ import VatGstCalculator from './components/finance-conversion-calculators/VatGst
 import InternetSpeedChecker from './components/networking-online-tools/InternetSpeedChecker';
 // Productivity dev tools
 import Base64EncoderAndDecoder from './components/productivity-dev-tools/Base64EncoderAndDecoder';
+import JwtDecoder from './components/productivity-dev-tools/JwtDecoder';
+import TimestampConverter from './components/productivity-dev-tools/TimestampConverter';
 import ColorPicker from './components/productivity-dev-tools/ColorPicker';
 import CronExpressionGenerator from './components/productivity-dev-tools/CronExpressionGenerator';
 import CssJsMinifier from './components/productivity-dev-tools/CssJsMinifier';
@@ -74,7 +76,9 @@ import WebsiteSpeedTest from './components/seo-website-tools/WebsiteSpeedTest';
 // Social media profile tools 
 import HashtagGenerator from './components/social-media-profile-tools/HashtagGenerator';
 // Text writing tools
+import CaseConverter from './components/text-writing-tools/CaseConverter';
 import { LoremIpsumGenerator } from './components/text-writing-tools/LoremIpsumGenerator';
+import TextDiffChecker from './components/text-writing-tools/TextDiffChecker';
 import MarkdownToHtmlConverter from './components/text-writing-tools/MarkdownToHtmlConverter';
 import ReadabilityScoreAnalyzer from './components/text-writing-tools/ReadabilityScoreAnalyzer';
 import WordCharacterCounter from './components/text-writing-tools/WordCharacterCounter';
@@ -101,6 +105,7 @@ function App() {
           <Route path="/textToSpeech" element={<TextToSpeech />} />
           {/* Image Tools */}
           <Route path="/backgroundBlur" element={<BackgroundBlur />} />
+          <Route path="/imageToPdf" element={<Navigate to="/" replace />} />
           <Route path="/imageCompressor" element={<ImageCompressor />} />
           <Route path="/imageResizer" element={<ImageResizer />} />
           <Route path="/imageToWebp" element={<ImageToWebP />} />
@@ -141,6 +146,8 @@ function App() {
           <Route path="/internetSpeedChecker" element={<InternetSpeedChecker />} />
           {/* Productivity dev tools */}
           <Route path="/base64EncoderDecoder" element={<Base64EncoderAndDecoder />} />
+          <Route path="/jwtDecoder" element={<JwtDecoder />} />
+          <Route path="/timestampConverter" element={<TimestampConverter />} />
           <Route path="/colorPicker" element={<ColorPicker />} />
           <Route path="/cronExpressionGenerator" element={<CronExpressionGenerator />} />
           <Route path="/cssjsMinifier" element={<CssJsMinifier />} />
@@ -162,7 +169,9 @@ function App() {
           {/* Social media profile tools */}
           <Route path="/hashtagGenerator" element={<HashtagGenerator />} />
           {/* Text writing tools */}
+          <Route path="/caseConverter" element={<CaseConverter />} />
           <Route path="/loremIpsumGenerator" element={<LoremIpsumGenerator />} />
+          <Route path="/textDiffChecker" element={<TextDiffChecker />} />
           <Route path="/markdownToHtml" element={<MarkdownToHtmlConverter />} />
           <Route path="/readabilityScoreAnalyzer" element={<ReadabilityScoreAnalyzer />} />
           <Route path="/wordCharacterCounter" element={<WordCharacterCounter />} />

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getProductionFilename } from "../../utils/downloadFilename";
 
 const QR_API = "https://api.qrserver.com/v1/create-qr-code/";
 
@@ -22,7 +23,7 @@ const QrGenerator = () => {
     if (!qrUrl) return;
     const a = document.createElement("a");
     a.href = qrUrl;
-    a.download = "qrcode.png";
+    a.download = getProductionFilename("png");
     a.click();
   };
 

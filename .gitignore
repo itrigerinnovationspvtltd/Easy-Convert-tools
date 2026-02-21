@@ -10,6 +10,8 @@
 
 # testing
 /coverage
+test_input.png
+test_out.pdf
 
 # production
 /build

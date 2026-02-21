@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getProductionFilename } from "../../utils/downloadFilename";
 
 const FaviconGenerator = () => {
   const [text, setText] = useState("EC");
@@ -26,7 +27,7 @@ const FaviconGenerator = () => {
     const data = generateFavicon(favSize);
     const a = document.createElement("a");
     a.href = data;
-    a.download = `favicon-${favSize}x${favSize}.png`;
+    a.download = getProductionFilename("png");
     a.click();
   };
 

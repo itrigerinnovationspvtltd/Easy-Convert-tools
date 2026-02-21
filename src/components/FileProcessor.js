@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { API_BASE_URL } from "../config/api";
+import { getProductionFilename } from "../utils/downloadFilename";
 import { HiDocument, HiXMark } from "react-icons/hi2";
 import { FaFileImage, FaCloudUploadAlt } from "react-icons/fa";
 
@@ -106,7 +107,7 @@ function FileUploader({
     const ext = extMap[ct?.split("|")[0]] || extMap[ct] || ".jpg";
     const a = document.createElement("a");
     a.href = convertedFileURL;
-    a.download = `converted_${file.name.replace(/\.[^/.]+$/, "")}${ext}`;
+    a.download = getProductionFilename(ext);
     a.click();
   };
 

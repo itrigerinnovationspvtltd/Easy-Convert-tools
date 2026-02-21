@@ -31,6 +31,8 @@ const converters = [
 const clientSideTools = [
   { title: "Word Counter", desc: "Count words & characters.", icon: <FaTextHeight className="text-blue-600" />, link: "/wordCharacterCounter" },
   { title: "Base64 Encode/Decode", desc: "Encode or decode Base64.", icon: <MdCode className="text-indigo-500" />, link: "/base64EncoderDecoder" },
+  { title: "JWT Decoder", desc: "Decode JSON Web Tokens.", icon: <HiKey className="text-violet-600" />, link: "/jwtDecoder" },
+  { title: "Timestamp Converter", desc: "Unix ↔ human date.", icon: <FaClock className="text-sky-600" />, link: "/timestampConverter" },
   { title: "JSON Formatter", desc: "Format or minify JSON.", icon: <MdCode className="text-amber-600" />, link: "/jsonFormatter" },
   { title: "Color Picker", desc: "Pick colors, get hex/RGB.", icon: <FaPalette className="text-pink-500" />, link: "/colorPicker" },
   { title: "QR Code Generator", desc: "Create QR codes.", icon: <FaQrcode className="text-gray-700" />, link: "/qrGenerator" },
@@ -45,6 +47,8 @@ const clientSideTools = [
   { title: "Age Calculator", desc: "Calculate age.", icon: <FaCalculator className="text-blue-500" />, link: "/ageCalculator" },
   { title: "Unit Converter", desc: "Length, weight, temp.", icon: <FaCalculator className="text-orange-500" />, link: "/unitConverter" },
   { title: "Readability Score", desc: "Analyze text readability.", icon: <FaTextHeight className="text-green-600" />, link: "/readabilityScoreAnalyzer" },
+  { title: "Case Converter", desc: "UPPER, lower, Title Case.", icon: <MdFormatColorText className="text-indigo-500" />, link: "/caseConverter" },
+  { title: "Text Diff Checker", desc: "Compare two texts.", icon: <FaTextHeight className="text-amber-600" />, link: "/textDiffChecker" },
 ];
 
 const moreTools = [
